@@ -1,0 +1,22 @@
+<%= form_for @request do |f| %>
+<% if @request.errors.any? %>
+  <div class="error_messages">
+    <h3>Form is invalid</h3>
+    <ul>
+      <% for message in @request.errors.full_messages %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= f.label :Enter_Schedule %>   
+<%= f.text_field :schedule %> <br><br>
+           
+<%= f.label :Description %> 
+<%= f.text_field :description %> 
+
+<%= f.hidden_field :tuteeId ,:value=>current_user.id %>
+       
+<p class="button"><%= f.submit "Send"%></p>
+<% end %>

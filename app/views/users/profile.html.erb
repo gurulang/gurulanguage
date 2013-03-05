@@ -1,0 +1,83 @@
+	
+    <% if current_user %>
+            <% flash.each do |name, msg| %>
+              <%= content_tag :div, msg, :id => "flash#{name}" %>
+            <% end %>
+            <%= yield %>  
+       <p><h1 class='forheader'> <%= current_user.username %>!</h1></p>
+                 
+     <% end %>  
+
+     <div class="nash">
+       <div class="btn btn-large btn-primary" type="submit"  id="signup-text">
+          <%= link_to 'View Tutors', tutorsList2_path %>
+      </div>
+
+
+       <div class="btn btn-large btn-primary" type="submit"  id="signup-text">
+          <%= link_to 'Request Form', sign_up_path %>
+      </div>
+	</div>      
+  <!-- 
+
+   -->
+
+
+<br>
+<div class="row well"><br><br><br>
+  <div class="span12" style="background-color:#f5f5f5; align:center; margin-left:230px;">
+    <div class="row">
+      <div class="span4 "><br>
+          <div class="well">
+            <%= image_tag "photo.jpg", :alt=>"prof_pic" %>
+          </div>
+
+          <div class="well">
+           <%= current_user.usertype %></t>
+            Rating:<br>
+            Member since: <br>
+            Classes Attended: 6<br>
+          </div>
+
+     </div>
+      <div class="span8"><br>
+        <div class="well">
+       
+        <h1> <%= current_user.username %> </h1>
+         <p><h6> <%= current_user.usertype %> <t>Rating  </h6></p>
+          <hr>
+
+        <table class="table" id="table2">
+        <th>About ME</th><!-- 
+        <tr><td>Member Since</td>
+            <td>ambot</td>
+        </tr> -->
+        <tr><td>Name</td>
+            <td><%= current_user.name %></td>
+        </tr>
+        <tr><td>Location</td>
+            <td><%= current_user.location %></td>
+        </tr>
+        <tr><td>Email</td>
+            <td><%= current_user.email %></td>
+        </tr>
+        <tr><td>Gender</td>
+            <td><%= current_user.gender %></td>
+        </tr>
+        <tr><td>Birthday</td>
+            <td><%= current_user.birthday %></td>
+        </tr>
+        <tr><td>Description</td>
+            <td rowspan='3'><%= current_user.description %></td>
+        </tr>
+        </table>
+
+         
+        </p>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

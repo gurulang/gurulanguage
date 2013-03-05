@@ -1,0 +1,83 @@
+<!-- <div class="container">
+    <div class="form-signin">
+      <h3 class="form-signin-header">Sign Up</h3>
+      <br> -->
+
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ 
+
+</div>
+</div>
+</div>
+
+<div class="nc-form">
+  <h3>Account Information</h3>
+  <hr><div class="field">
+   <!--  <%= f.label :username %> -->
+    <%= f.text_field :username, :placeholder=>"Username" %>
+  </div>
+
+
+  <div class="field">
+ <!--    <%= f.label :email %> -->
+    <%= f.text_field :email, :placeholder=>"Email" %>
+  </div>
+
+  <div class="field"><!-- 
+    <%= f.label :password %> -->
+    <%= f.password_field :password, :placeholder=>"Password" %>
+  </div>
+  <div class="field" placeholder="password"><!-- 
+    <%= f.label :password_confirmation %> -->
+    <%= f.password_field :password_confirmation, :placeholder=>"Password Confirmation" %>
+  </div>
+
+  <div class="field"><!-- 
+    <%= f.label :usertype %> -->
+    <%= f.select :usertype,  options_for_select([["I want to be a",""],["Tutor", "Tutor"], ["Tutee", "Tutee"]], :selected =>@user.usertype) %>
+  </div>
+
+<br><br>
+  <h3>Personal Information</h3>
+  <hr>
+
+  <div class="controls controls-row">
+  <input class="span4" type="text" placeholder=".span4">
+  <input class="span1" type="text" placeholder=".span1">
+</div>
+
+
+   <div class="field"><!-- 
+    <%= f.label :gender %> -->
+    <%= f.select :gender, options_for_select([["I am",""],["Female", "Female"], ["Male", "Male"], ["Others", "Others"]], :selected =>@user.gender) %>
+  </div>
+
+
+  <div class="field"><!-- 
+    <%= f.label :birthday %> -->
+    <%= f.text_field :birthday, :placeholder=>"Birthday" %>
+
+  <div class="field"><!-- 
+    <%= f.label :location %> -->
+    <%= f.text_field :location, :placeholder=>"Location" %>
+
+  <div class="field"><!-- 
+    <%= f.label :description %> -->
+    <%= f.text_area :description, :placeholder=>"Brief Description" %>
+  </div>
+
+  hellloooooooooooo
+</div>
+
+<% end %>

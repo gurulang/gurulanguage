@@ -1,0 +1,22 @@
+<center> <H3> List OF Schedules </H3> </center>
+
+<table width="75%" align="center" border="1">
+  <tr>
+    <th>Day</th>
+    <th>Start</th>
+    <th>End</th>
+	<th> </th>
+	<th> </th>
+  </tr>
+ 
+<% @schedules.each do |schedule| %>
+  <tr>
+    <td><%= schedule.day %></td>
+    <td><%= schedule.start %></td>
+    <td><%= schedule.end %></td>
+    <td><%= link_to 'Show', schedule %></td>
+    <td><%= link_to 'Delete', schedule, :confirm => 'Are you sure?',
+                                     :method => :delete %> </td>
+  </tr>
+<% end %>
+</table>

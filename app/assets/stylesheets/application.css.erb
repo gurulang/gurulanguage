@@ -1,0 +1,126 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+ body{
+        /*background-image: url(<%= asset_path "10.jpg" %>);*/
+        margin-top:100px;
+ }
+
+ .table2  {
+  background-color: #ffffff;
+ }
+
+ #table2 td,
+ #table2 th  {
+  border-top: 0px solid #dddddd;
+ }
+  .links:hover
+  .links:active
+  .links:disabled
+  .links.hover
+  .links.active
+  .links.disabled{
+  color:red;
+  font-size: 20px;
+  text-decoration: none;
+ }
+  .links:hover
+  .links.hover{
+  color:red;
+  font-size: 20px;
+  text-decoration: none;
+ }
+ .container-profile-left{
+    width: 220px;
+    border:1px solid #f5f5f5;
+    background-color:#e5e5e5;
+ }
+
+ .container-profile-left-inside{
+    width:220px;
+    margin-left: 10px;
+
+ }
+#btn-guru{
+  color:white;
+  padding: 10px 80px 10px 80px;
+  font-size: 17.5px;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+}
+
+.white-text{
+  color:white;
+}
+#indexpage{
+  background-image: url("<%= asset_path('pic-b.jpg') %>");
+  background-size:2000px 1000px;
+
+  /*background-color: black;*/
+}
+
+/* --------------------------------FORM		sign-in*/
+
+.form-well{
+  max-width:360px;
+}
+.form-signin {/*
+    margin-right: 10px; */
+    max-width: 270px;
+    padding: 19px 35px 29px;/*
+
+    margin-top: 100px;
+    margin-left:300px;*/
+	background-color: #f5f5f5;
+	border: 5px solid  #e5e5e5; 
+	/*#e5e5e5;*/
+	-webkit-border-radius: 5px;
+	   -moz-border-radius: 5px;
+	        border-radius: 5px;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	        box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+	margin-bottom: 10px;
+}
+
+.form-signin input[type="text"],
+.form-signin input[type="password"] {
+	font-size: 16px;
+	height: auto;
+	margin-bottom: 15px;
+	padding: 7px 9px;
+}
+/*
+#signin2{
+    margin-right: 60px; 
+    margin-top: 100px;
+    margin-left:130px;
+}*/
+
+/*---------------FORM:	field(input-block-level)*/
+div.field{
+  display: block;
+  width: 100%;
+  min-height: 30px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+ 

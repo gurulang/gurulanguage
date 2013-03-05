@@ -1,0 +1,30 @@
+<center> 
+  <H1> TUTOR'S HOMEPAGE </H1>
+  <div class ='homepage-links'>
+     <table class="table table-striped">
+      <th>
+        <td><%= link_to "TUTORS", tutorsList2_path %> |</td>\
+        <td> <%= link_to "TUTEES", tuteesList2_path %> |</td>
+        <td><%= link_to "CLASSES", classesList2_path %> |</td>
+        <td> <%= link_to "JOB REQUEST", jobrequest_path %> </td>  
+      </th>
+    </table>
+  </div>
+</center>
+
+<center> <H3> LIST OF TUTEES </H3> </center>
+
+<!-- <table width="75%" align="center" border="1"> -->
+ <table class="table table-striped table-hover" width="75%">
+  <tr>
+    <th>Name</th>
+    <th>Rating</th>
+  </tr>
+ 
+<% @users.each do |user| %>
+  <tr>
+    <td><%= link_to user.name, user  %></td>
+    <td><%= user.usertype %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,88 @@
+
+
+<center> 
+  <H1> TUTOR'S HOMEPAGE </H1>
+
+  <div class ='homepage-links'>
+     <table class="table table-striped">
+      <th>
+        <td><%= link_to "TUTORS", tutorsList2_path %> |</td>\
+        <td> <%= link_to "TUTEES", tuteesList2_path %> |</td>
+        <td><%= link_to "CLASSES", classesList2_path %> |</td>
+        <td> <%= link_to "JOB REQUEST", jobrequest_path %> </td>  
+      </th>
+    </table>
+  </div>
+</center>
+
+<center> <H3> LIST OF TUTORS </H3> </center>
+
+<!-- <table width="75%" align="center" border="1"> -->
+ <table class="table table-bordered" width="75%">
+  <tr>
+    <th>Name</th>
+    <th>Rating</th>
+  </tr>
+ 
+<% @users.each do |user| %>
+  <tr>
+    <td><%= link_to user.name, user  %></td>
+    <td><%= user.usertype %></td>
+  </tr>
+<% end %>
+</table>
+<!-- 
+
+
+ -->
+
+<br>
+<div class="row well"><br><br><br>
+  <div class="span12" style="background-color:#f5f5f5; align:center; margin-left:230px;">
+    <div class="row">
+      <div class="span4 "><br>
+          <div class="container-profile-left sidebar-nav well">
+          Welcome to GuruLang, <strong> <%= current_user.username %>!</strong>
+        <li class="links"><%= link_to "View My Profile", profile_path %></li>
+            
+      </div>
+      <div class="container-profile-left sidebar-nav well ">
+            <ul class= "nav nav-list">
+               <% if current_user.usertype == 'Tutor' %>
+              <li class=""> <%= link_to 'View Tutees', tutorsList2_path %> </li>
+               <% else %>
+              <li class=""> <%= link_to 'View Tutors', tutorsList2_path %> </li>
+               <% end %>
+            <li class=""> <%= link_to 'View Classes', tutorsList2_path %> </li>
+            <li class=""> <%= link_to 'Schedule', tutorsList2_path %> </li>
+            <li class=""> <%= link_to 'Requests', tutorsList2_path %> </li>
+          <li class="divider"></li>
+          <li><a href="#">Library</a></li>
+          ...
+        </ul>
+      </div>
+     </div>
+      <div class="span8"><br>
+        <div class="well">
+           <table class="table table-bordered" width="75%">
+            <tr>
+              <th colspan='2'>List of @user.usertype</th>
+              <tr>
+                <th>Name</th>
+                <th>Rating</th>
+              </tr>
+             
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= link_to user.name, user  %></td>
+                <td><%= user.usertype %></td>
+              </tr>
+            <% end %>
+            </table>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

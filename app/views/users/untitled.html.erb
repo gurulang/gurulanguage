@@ -1,0 +1,47 @@
+<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+  <li><a tabindex="-1" href="#">Action</a></li>
+  <li><a tabindex="-1" href="#">Another action</a></li>
+  <li><a tabindex="-1" href="#">Something else here</a></li>
+  <li class="divider"></li>
+  <li><a tabindex="-1" href="#">Separated link</a></li>
+</ul>
+
+
+
+<div class="container-fluid">
+<div class="row-fluid">
+  <div class="span6">
+  	<div class="nash">
+        <%= image_tag "3.png"%>
+        <h1>GuruLang</h1>
+        <p class="lead"> Connect. Learn. Teach.Language</p>
+       <div class="btn btn-large btn-primary" type="submit"  id="signup-text">
+          <%= link_to 'Sign Up', sign_up_path %>
+      </div>
+  	</div><!--NASH-->
+   </div> <!--span6--> 
+
+  <div class="span6">
+    <div class="form-signin" id="signin2">
+      <% flash.each do |name, msg| %>
+                    <%= content_tag :div, msg, :id => "flash#{name}" %>
+                  <% end %>
+      <h2>Log in</h2>
+      <%= form_tag sessions_path do %>
+
+        <div class="field" placeholder="password">
+          <h7><%= text_field_tag :username, params[:username], :placeholder=>"Username"%></h7>
+        </div>
+        <div class="field">
+          <h7><%= password_field_tag :password, :placeholder=>"Password"%></h7>
+        </div>
+        <div class="actions">
+          <%= submit_tag "Log in" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
+
+

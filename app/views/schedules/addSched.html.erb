@@ -1,0 +1,91 @@
+<br>
+<div class="row well"><br><br><br>
+  <div class="span12" style="background-color:#f5f5f5; align:center; margin-left:230px;float:">
+    <div class="row">
+      <div class="span4 "><br>
+          <div class="container-profile-left sidebar-nav well">
+          Welcome to GuruLang, <strong> <%= current_user.username %>!</strong>
+        <li class="links"><%= link_to "View My Profile", profile_path %></li>
+
+      </div>
+      <div class="container-profile-left sidebar-nav well ">
+            <ul class= "nav nav-list">
+            <li class=""> <%= link_to 'Dashboard', prof_path %> </li>
+               <% if current_user.usertype == 'Tutor' %>
+            <li class=""> <%= link_to 'Notifications', requestNotif_path %> </li>
+            <li class=""> <%= link_to 'My Schedules', myScheduleList_path %> </li>
+              <li class=""> <%= link_to 'View Tutees', tuteeList_path %> </li>
+              <li class="active"> <%= link_to '*Add New Schedule', addSched_path %> </li>
+               <% else %>
+            <li class=""> <%= link_to 'My Requests', myRequestList_path %> </li>
+              <li class=""> <%= link_to 'View Tutors', tutorList_path %> </li>
+              <li class=""> <%= link_to '*Add New Request', addRequest_path %> </li>
+               <% end %>
+               <li class="divider"></li>
+            <li class=""> <%= link_to 'View Classes', tutorsList2_path %> </li>
+            <li class=""> <%= link_to 'Schedule', tutorsList2_path %> </li>
+          <li class="divider"></li><!-- 
+          <li><a href="#">Library</a></li>
+          ... -->
+        </ul>
+      </div>
+     </div>
+      <div class="span8"><br>
+        <div class="well">
+<!--  -->
+<div class="container">
+    <div class="form-signin">
+        <h2> Add New Schedule </h2>
+         <%= form_for(@schedule) do |f| %>
+              <% if @schedule.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+
+                  <ul>
+                  <% @schedule.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                  <% end %>
+                  </ul>
+                </div>
+              <% end %>
+
+             <div class="field">
+                <%=  %>
+                <%= f.hidden_field :userID, :value=>session[:user_id] %>
+            </div>
+
+             <div class="field">
+                <%= f.label :Day %><br />
+                <%= f.text_field :day %>
+            </div>
+
+             <div class="field">
+                <%= f.label :Start %><br />
+                <%= f.time_select :start %>
+            </div>
+
+             <div class="field">
+                <%= f.label :End %><br />
+                <%= f.time_select  :end %>
+            </div>
+            
+            <%= check_box_tag "day[]", "Sunday" %>Sunday
+            <%= check_box_tag "day[]", "Monday" %>Monday
+            <%= check_box_tag "day[]", "Tuesday" %>Tuesday
+            <%= check_box_tag "day[]", "Wednesday" %>Wednesday
+            <%= check_box_tag "day[]", "Thursday" %>Thursday
+            <%= check_box_tag "day[]", "Friday" %>Friday
+            <%= check_box_tag "day[]", "Saturday" %>Saturday<br><br>
+
+            <div class="actions"> 
+                <%= f.submit %>
+              </div>
+        <% end %>
+      </div>
+    </div>
+
+         </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,88 @@
+<br>
+<div class="row well"><br><br><br>
+  <div class="span12" style="background-color:#f5f5f5; align:center; margin-left:230px;float:">
+    <div class="row">
+      <div class="span4 "><br>
+          <div class="container-profile-left sidebar-nav well">
+          Welcome to GuruLang, <strong> <%= current_user.username %>!</strong>
+        <li class="links"><%= link_to "View My Profile", profile_path %></li>
+
+      </div>
+      <div class="container-profile-left sidebar-nav well ">
+            <ul class= "nav nav-list">
+            <li class="active"> <%= link_to 'Dashboard', prof_path %> </li>
+               <% if current_user.usertype == 'Tutor' %>
+            <li class=""> <%= link_to 'Notifications', requestNotif_path %> </li>
+            <li class=""> <%= link_to 'My Schedule', myScheduleList_path %> </li>
+              <li class=""> <%= link_to 'View Tutees', tuteeList_path %> </li>
+              <li class=""> <%= link_to '*Add New Schedule', addSched_path %> </li>
+               <% else %>
+            <li class=""> <%= link_to 'My Requests', myRequestList_path %> </li>
+              <li class=""> <%= link_to 'View Tutors', tutorList_path %> </li>
+              <li class=""> <%= link_to '*Add New Request', addRequest_path %> </li>
+               <% end %>
+               <li class="divider"></li>
+            <li class=""> <%= link_to 'View Classes', tutorsList2_path %> </li>
+            <li class=""> <%= link_to 'Schedule', tutorsList2_path %> </li>
+          <li class="divider"></li><!-- 
+          <li><a href="#">Library</a></li>
+          ... -->
+        </ul>
+      </div>
+     </div>
+      <div class="span8"><br>
+        <div class="well">
+      	<p>
+      	<h1> <%= current_user.username %> </h1>
+        <!-- NOTIF HERE -->
+       <% if  @count != 0 %>  
+        <%= link_to "You have #{@count} new request notifications", requestNotif_path, :class=>"btn btn-warning" %>
+        <%= @count %>  
+        <% end %>
+        <!-- END OF NOTIF HERE -->
+
+      	<hr><h6> <%= current_user.usertype %> </h6>
+      		<h6>Rating  </h6> <%= @tempID %></p>
+          <!--  -->
+           <table class="table table-bordered" width="75%">
+            <tr>
+              <th colspan='2'><h2>Requests</h2></th>
+              <tr>
+                <th>Request ID</th>
+                <th>Title</th>
+                <th>Tutee ID</th>
+                <th>Tutor ID</th>
+              </tr>
+             
+            <% @temps.each do |temp| %>
+              <tr>
+                <td><%= link_to temp.requestID, temp  %></td>
+                <td><%= temp.title %></td>
+                <td><%= temp.tuteeID %></td>
+                <td><%= temp.tutorID %></td>
+              </tr>
+            <% end %>
+            </table>
+
+          <!--  -->
+      	<p> You currently have
+
+      			<ul class= "accordion">
+      				 <% if current_user.usertype == 'Tutor' %>
+				    	<li class=""> 0 <%= link_to 'Tutees', tutorsList2_path %> </li>
+      				 <% else %>
+				    	<li class=""> 0 <%= link_to 'Tutors', tutorsList2_path %> </li>
+      				 <% end %>
+				  <li class=""><a href="#">0 Classes</a></li>
+				  <li class=""><a href="#">no Schedule yet</a></li>
+				  <li class=""><a href="#">0 Requests</a></li>
+ 				  <li class="divider"></li>
+				</ul>
+      	</p>
+
+
+      	</div>
+      </div>
+    </div>
+  </div>
+</div>

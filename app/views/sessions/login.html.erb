@@ -1,0 +1,38 @@
+  <div class="container">
+    <div class="form-signin">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash#{name}" %>
+        <% end %>
+
+        <h2 class="form-signin-heading">Log in</h2>
+        <%= form_tag sessions_path do %>
+
+        <div class="field" placeholder="password">
+          <%= label_tag :username %>
+          <h7><%= text_field_tag :username, params[:username],  :placeholder=>"Username" %></h7>
+        </div>
+        <div class="field">
+          <%= label_tag :password %>
+          <h7><%= password_field_tag :password , :placeholder=>"Password" %></h7>
+        </div>
+        <div class="actions">
+          <%= submit_tag "Log in" %>
+        </div>
+      <% end %>
+    </div>
+</div> <!-- /container -->
+
+<div class="container">
+
+      <form class="form-signin">
+        <h2 class="form-signin-heading">Signup</h2>
+        <div class="input-block-level">
+        <input type="text" class="input-block-level" placeholder="Email address">
+        <input type="password" class="input-block-level" placeholder="Password">
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        <button class="btn btn-large btn-primary" type="submit">Sign in</button>
+      </form>
+
+    </div> <!-- /container -->

@@ -1,0 +1,56 @@
+
+<!-- 
+ -->
+ <body id="indexpage">
+
+ <div class="span12" style="width:980px;" >
+  <div class=" row " style=" align:center; margin-left:190px; margin-top:100px; width:980px" >
+      <div class="span8">
+        <div class="row well" style=" background-color:#f5f5f5; padding: 80px ;">
+       <!-- GURULANG LOGO AND BLAHH BLAH HERE -->
+        <%= image_tag "3.png"%>
+        <h1>GuruLang</h1>
+        <p class="lead"> Connect. Learn. Teach.Language</p>
+           
+       <!--  <%= image_tag "3.png"%>
+        <h1>GuruLang</h1>
+        <p class="lead"> Connect. Learn. Teach.Language</p>
+       <div class="btn btn-large btn-primary" type="submit"  id="signup-text">
+          <%= link_to 'Sign Up', sign_up_path %>
+    -->
+       <!-- END GURULANG LOGO AND BLAHH BLAH HERE -->
+        </div>
+      </div>
+      <div class="span4"> 
+
+        <div class="well" id="form-well"style="background-color:#f5f5f5;">
+           <center><h6> Join GuruLang! Sign up now!</h6>
+              <%= link_to "Get Started", sign_up_path, :class => "btn btn-warning",:id=>"btn-guru" %> 
+            </center>
+        </div>
+          <!-- LOG IN FORM HERE -->
+            <div class="form-signin" id="signin2">
+              <% flash.each do |name, msg| %>
+                            <%= content_tag :div, msg, :id => "flash#{name}" %>
+                          <% end %>
+              <h2>Log in</h2>
+              <%= form_tag sessions_path do %>
+
+              <div class="field" placeholder="password">
+                <h7><%= text_field_tag :username, params[:username], :placeholder=>"Username"%></h7>
+              </div>
+              <div class="field">
+                <h7><%= password_field_tag :password, :placeholder=>"Password"%></h7>
+              </div>
+              <div class="white-text">
+                <%= submit_tag "Log in", :class=>"btn btn-primary" %>
+              </div>
+            <% end %>
+          </div>
+          <!-- END OF LOG IN FORM -->
+        </div>
+      </div>
+   </div>
+  </div>
+
+</div> 

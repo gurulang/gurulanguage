@@ -1,0 +1,79 @@
+<br>
+<div class="row well"><br><br><br>
+  <div class="span12" style="background-color:#f5f5f5; align:center; margin-left:230px;float:">
+    <div class="row">
+      <div class="span4 "><br>
+          <div class="container-profile-left sidebar-nav well">
+          Welcome to GuruLang, <strong> <%= current_user.username %>!</strong>
+        <li class="links"><%= link_to "View My Profile", profile_path %></li>
+
+      </div>
+      <div class="container-profile-left sidebar-nav well ">
+            <ul class= "nav nav-list">
+            <li class=""> <%= link_to 'Dashboard', prof_path %> </li>
+               <% if current_user.usertype == 'Tutor' %>
+            <li class="active"> <%= link_to "Notifications(#{@count})", requestNotif_path %> </li>
+            <li class=""> <%= link_to 'My Schedule', myScheduleList_path %> </li>
+              <li class=""> <%= link_to 'View Tutees', tuteeList_path %> </li>
+              <li class=""> <%= link_to '*Add New Schedule', addSched_path %> </li>
+               <% else %>
+            <li class=""> <%= link_to 'My Requests', myRequestList_path %> </li>
+              <li class=""> <%= link_to 'View Tutors', tutorList_path %> </li>
+              <li class=""> <%= link_to '*Add New Request', addRequest_path %> </li>
+               <% end %>
+               <li class="divider"></li>
+            <li class=""> <%= link_to 'View Classes', tutorsList2_path %> </li>
+            <li class=""> <%= link_to 'Schedule', tutorsList2_path %> </li>
+          <li class="divider"></li><!-- 
+          <li><a href="#">Library</a></li>
+          ... -->
+        </ul>
+      </div>
+     </div>
+      <div class="span8"><br>
+        <div class="well">
+          <center> <H3> List of Applicants  </H3> </center>
+              <h6>You have a total of <%= @count %> new requests.</h6>
+              <table class="table">
+                <tr>
+                  <th>id</th>
+                  <th>tutor</th>
+                  <th>Day</th>
+                  <th>Start</th>
+                  <th>End</th>
+                  <th>title</th>
+                  <th>status</th>
+              	<th> </th>
+              	<th> </th>
+                </tr>
+               
+              <% @myRequests.each do |request| %>
+                <tr>
+                  <td><%= request.id %></td>
+                  <td><%= request.tutorID %></td>
+                  <td><%= request.day %></td>
+                  <td><%= request.start %></td>
+                  <td><%= request.end %></td>
+                  <td><%= request.title %></td>
+                  <td><%= request.status %></td>
+                  <td><%= link_to 'Show', request %></td>
+                  <td><%= link_to 'Delete', request, :confirm => 'Are you sure?',
+                                                   :method => :delete %> </td>
+                  <td><%= link_to 'Approve', approve_path(request) %> </td>
+                  <!-- :id=>request.id, :status=>request.id, :tutorID=>request.tutorID %></td>-->
+                </tr>
+              <% end %>
+              </table>
+
+          <div>
+            <!-- :controller, :action(method), :params -->
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+s
